@@ -39,9 +39,9 @@ public abstract class InstrumentSoundManager : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            PlaySound();
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    PlaySound();
+        //}
     }
 }

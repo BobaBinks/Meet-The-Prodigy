@@ -6,39 +6,47 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement Parameters")]
-    [SerializeField][Range(0, 5)] float jumpPower = 5f;
-    [SerializeField][Range(0, 5)] float moveSpeed = 5f;
+    [SerializeField][Range(0, 100)] float jumpPower = 5f;
+    [SerializeField][Range(0, 100)] float moveSpeed = 5f;
 
     bool isGrounded = true;
     Vector2 moveInput;
     
-
-    Rigidbody2D rb;
     Animator animator;
+    Rigidbody2D rigidBody;
     SpriteFlipper spriteFlipper;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        rigidBody = GetComponent<Rigidbody2D>();
         spriteFlipper = GetComponent<SpriteFlipper>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(moveInput.sqrMagnitude > 0)
-            spriteFlipper.FlipByDirection(rb.linearVelocity);
-
+        if(moveInput.sqrMagnitude > 0 && spriteFlipper)
+            spriteFlipper.FlipByDirection(rigidBody.linearVelocity);
     }
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveInput.x * moveSpeed, rb.linearVelocityY);
+        if (!rigidBody)
+            return;
 
-        animator.SetFloat("xVelocity", Math.Abs(rb.linearVelocity.x));
-        animator.SetFloat("yVelocity", rb.linearVelocity.y);
+        //rigidBody.AddForce(new Vector2(moveInput.x * moveSpeed, 0), ForceMode2D.Force);
+
+        if(moveInput.sqrMagnitude > 0)
+        {
+            rigidBody.linearVelocity = new Vector2(moveInput.x * moveSpeed, rigidBody.linearVelocityY);
+        }
+
+        if (!animator)
+            return;
+
+        animator.SetFloat("xVelocity", Math.Abs(rigidBody.linearVelocity.x));
+        animator.SetFloat("yVelocity", rigidBody.linearVelocity.y);
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -48,11 +56,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (!isGrounded)
+        if (!isGrounded || !rigidBody)
             return;
 
-        rb.AddForceY(jumpPower, ForceMode2D.Impulse);
+        rigidBody.AddForceY(jumpPower, ForceMode2D.Impulse);
         isGrounded = false;
+
+        if (!animator)
+            return;
+
         animator.SetBool("isJumping", !isGrounded);
 
         // sound effect
