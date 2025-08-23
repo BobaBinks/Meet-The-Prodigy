@@ -9,7 +9,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField][Range(0, 100)] float jumpPower = 5f;
     [SerializeField][Range(0, 100)] float moveSpeed = 5f;
 
-    bool isGrounded = true;
+    [SerializeField] GroundCheck groundChecker;
+
+    bool wasGrounded;
     Vector2 moveInput;
     
     Animator animator;
@@ -28,6 +30,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if(moveInput.sqrMagnitude > 0 && spriteFlipper)
             spriteFlipper.FlipByDirection(rigidBody.linearVelocity);
+
+        if (!groundChecker)
+            return;
+
+        bool isGrounded = groundChecker.IsGrounded();
+
+        // was in the air but just landed
+        if(!wasGrounded && isGrounded)
+        {
+            animator.SetBool("isJumping", false);
+            PlayLandingSound();
+        }
+
+        wasGrounded = isGrounded;
     }
 
     private void FixedUpdate()
@@ -37,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
         //rigidBody.AddForce(new Vector2(moveInput.x * moveSpeed, 0), ForceMode2D.Force);
 
-        if(moveInput.sqrMagnitude > 0)
+        if(moveInput.sqrMagnitude > 0 && groundChecker && groundChecker.isGrounded)
         {
             rigidBody.linearVelocity = new Vector2(moveInput.x * moveSpeed, rigidBody.linearVelocityY);
         }
@@ -56,17 +72,21 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (!isGrounded || !rigidBody)
+        if (groundChecker && !groundChecker.isGrounded || !rigidBody)
             return;
 
         rigidBody.AddForceY(jumpPower, ForceMode2D.Impulse);
-        isGrounded = false;
 
         if (!animator)
             return;
 
-        animator.SetBool("isJumping", !isGrounded);
+        animator.SetBool("isJumping", true);
 
+        PlayJumpStartSound();
+    }
+
+    private void PlayJumpStartSound()
+    {
         // sound effect
         if (!SoundManager.Instance || !SoundLibrary.Instance)
             return;
@@ -76,11 +96,8 @@ public class PlayerMovement : MonoBehaviour
         SoundManager.Instance.PlaySoundEffect(clip);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void PlayLandingSound()
     {
-        isGrounded = true;
-        animator.SetBool("isJumping", !isGrounded);
-
         // sound effect
         if (!SoundManager.Instance || !SoundLibrary.Instance)
             return;
@@ -93,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
     public void OnStep()
     {
         // sound effect
-        if (!SoundManager.Instance || !SoundLibrary.Instance)
+        if (!SoundManager.Instance || !SoundLibrary.Instance || (groundChecker && !groundChecker.isGrounded))
             return;
 
         // get random footstep
