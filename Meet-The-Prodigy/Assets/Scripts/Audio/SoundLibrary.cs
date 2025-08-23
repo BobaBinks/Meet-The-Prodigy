@@ -14,8 +14,7 @@ public class SoundLibrary: MonoBehaviour
         FOOTSTEP_4,
         FOOTSTEP_5,
         JUMP_START_1,
-        JUMP_LAND_1,
-        
+        JUMP_LAND_1,   
     }
 
     public enum Enemy
