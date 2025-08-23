@@ -12,7 +12,10 @@ public class SoundLibrary: MonoBehaviour
         FOOTSTEP_2,
         FOOTSTEP_3,
         FOOTSTEP_4,
-        FOOTSTEP_5
+        FOOTSTEP_5,
+        JUMP_START_1,
+        JUMP_LAND_1,
+        
     }
 
     public enum Enemy
@@ -28,6 +31,7 @@ public class SoundLibrary: MonoBehaviour
         BEAT_4,
         BEAT_5,
         BEAT_6,
+        BEAT_7,
     }
 
     public enum Flute
@@ -48,6 +52,7 @@ public class SoundLibrary: MonoBehaviour
         BEAT_5,
         BEAT_6,
         BEAT_7,
+        BEAT_8,
     }
 
     public enum Music

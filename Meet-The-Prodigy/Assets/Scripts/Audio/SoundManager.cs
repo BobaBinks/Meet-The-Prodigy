@@ -36,7 +36,7 @@ public class SoundManager : MonoBehaviour
             musicSource.volume = 0.5f;
 
         if (sfxSource)
-            sfxSource.volume = 0.5f;
+            sfxSource.volume = 1f;
     }
 
     private void Start()
@@ -117,8 +117,8 @@ public class SoundManager : MonoBehaviour
     {
         if (instrumentSfx == null)
             return;
-
-        instrumentSource.PlayOneShot(instrumentSfx);
+        instrumentSource.clip = instrumentSfx;
+        instrumentSource.Play();
     }
 
     /// <summary>
