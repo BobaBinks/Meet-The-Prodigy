@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
-public class Rat : MonoBehaviour, IDrumAffectable
+public class Teacher : MonoBehaviour, IDrumAffectable
 {
     Rigidbody2D rb;
     EnemyPatrol2D patrol;
@@ -14,7 +14,6 @@ public class Rat : MonoBehaviour, IDrumAffectable
         flash = GetComponent<HitFlash2D>();
     }
 
-    // External force (e.g., drum/ability)
     public void ApplyDrumEffect(float force, Vector2 direction)
     {
         if (!rb) return;
