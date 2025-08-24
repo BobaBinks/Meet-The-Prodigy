@@ -15,7 +15,9 @@ GameObject:
   - component: {fileID: 6608546311858587873}
   - component: {fileID: 3321950461481474206}
   - component: {fileID: 5475631236820671367}
-  m_Layer: 0
+  - component: {fileID: 5148878800618601058}
+  - component: {fileID: 1827784538956057867}
+  m_Layer: 8
   m_Name: Rat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,8 +127,8 @@ MonoBehaviour:
   halfDistance: 3
   patrolSpeed: 2
   startMovingRight: 1
-  spriteFacesRight: 1
   speedParam: speed
+  pauseParam: isPaused
 --- !u!114 &6608546311858587873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,3 +211,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5148878800618601058
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053454968637428096}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1827784538956057867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053454968637428096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333a2b7b340487741a9b95588432ba1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

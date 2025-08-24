@@ -1,7 +1,8 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
-public class Rat : MonoBehaviour, IDrumAffectable, IGuitarAffectable
+public class Rat : MonoBehaviour, IDrumAffectable, IGuitarAffectable, IFluteAffectable
 {
     Rigidbody2D rb;
     EnemyPatrol2D patrol;
@@ -29,5 +30,14 @@ public class Rat : MonoBehaviour, IDrumAffectable, IGuitarAffectable
             return;
 
         rb.AddForce(direction * force, ForceMode2D.Impulse);
+    }
+
+    public void ApplySleepEffect(float sleepDuration)
+    {
+        if (!patrol)
+            return;
+
+        Debug.Log($"{name}'s asleep for {sleepDuration} seconds");
+        patrol.Pause(sleepDuration);
     }
 }

@@ -16,7 +16,8 @@ GameObject:
   - component: {fileID: 3244313146944741176}
   - component: {fileID: 1955119585463631365}
   - component: {fileID: 2125955657015314815}
-  m_Layer: 0
+  - component: {fileID: 5754690413281499548}
+  m_Layer: 8
   m_Name: Teacher
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,8 +127,8 @@ MonoBehaviour:
   halfDistance: 3
   patrolSpeed: 2
   startMovingRight: 1
-  spriteFacesRight: 1
   speedParam: speed
+  pauseParam: isPaused
 --- !u!114 &1735728418481191516
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,3 +233,15 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5754690413281499548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5141123095077924344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 333a2b7b340487741a9b95588432ba1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
