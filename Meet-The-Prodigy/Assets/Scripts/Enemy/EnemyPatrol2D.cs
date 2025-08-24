@@ -2,32 +2,36 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(SpriteFlipper))]
 public class EnemyPatrol2D : MonoBehaviour
 {
-    [Header("Patrol (no points/children needed)")]
+    [Header("Patrol")]
     [Min(0.1f)] public float halfDistance = 3f;
     public float patrolSpeed = 2f;
     public bool startMovingRight = true;
 
     [Header("Visuals")]
-    [Tooltip("If art faces RIGHT when flipX=false, keep true. If it faces LEFT by default, set false.")]
-    public bool spriteFacesRight = true;
-    public string speedParam = "speed";   // leave blank if you don't use it
+    public string speedParam = "speed";
+    public string pauseParam = "isPaused";
 
     Rigidbody2D rb;
     SpriteRenderer sr;
     Animator anim;
+    SpriteFlipper spriteFlipper;
 
     float leftX, rightX;
     bool movingRight;
+    bool isPaused = false;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        sr = GetComponent<SpriteRenderer>();     // required above
-        anim = GetComponent<Animator>();           // optional
+        sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        spriteFlipper = GetComponent<SpriteFlipper>(); 
 
         float startX = transform.position.x;
         leftX = startX - halfDistance;
@@ -37,6 +41,9 @@ public class EnemyPatrol2D : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isPaused)
+            return;
+
         float targetX = movingRight ? rightX : leftX;
         float dx = targetX - rb.position.x;
         float vx = Mathf.Sign(dx) * patrolSpeed;
@@ -44,8 +51,7 @@ public class EnemyPatrol2D : MonoBehaviour
         rb.linearVelocity = new Vector2(vx, rb.linearVelocity.y);
 
         // Face travel direction
-        bool goingRight = rb.linearVelocity.x > 0.01f;
-        sr.flipX = spriteFacesRight ? !goingRight : goingRight;
+        spriteFlipper.FlipByDirection(rb.linearVelocity);
 
         if (anim && !string.IsNullOrEmpty(speedParam))
             anim.SetFloat(speedParam, Mathf.Abs(rb.linearVelocity.x));
@@ -60,8 +66,17 @@ public class EnemyPatrol2D : MonoBehaviour
     {
         var old = rb.linearVelocity;
         rb.linearVelocity = Vector2.zero;
+        isPaused = true;
+
+        if(anim && !string.IsNullOrEmpty(pauseParam))
+            anim.SetBool(pauseParam, isPaused);
+
         yield return new WaitForSeconds(seconds);
+        isPaused = false;
         rb.linearVelocity = old;
+
+        if (anim && !string.IsNullOrEmpty(pauseParam))
+            anim.SetBool(pauseParam, isPaused);
     }
 
 #if UNITY_EDITOR
