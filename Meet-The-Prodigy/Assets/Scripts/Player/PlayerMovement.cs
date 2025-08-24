@@ -23,6 +23,8 @@ public class PlayerMovement : MonoBehaviour
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
         spriteFlipper = GetComponent<SpriteFlipper>();
+
+        // animator.Play("DrumJump");
     }
 
     // Update is called once per frame
@@ -34,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         if (!groundChecker)
             return;
 
-        bool isGrounded = groundChecker.IsGrounded();
+        bool isGrounded = groundChecker.isGrounded;
 
         // was in the air but just landed
         if(!wasGrounded && isGrounded)
@@ -123,6 +125,5 @@ public class PlayerMovement : MonoBehaviour
         AudioClip clip = SoundLibrary.Instance.GetAudioClip(footStep);
 
         SoundManager.Instance.PlaySoundEffect(clip);
- 
     }
 }
