@@ -116,12 +116,12 @@ TextureImporter:
       name: guitarPlay2_0
       rect:
         serializedVersion: 2
-        x: 720
+        x: 0
         y: 0
-        width: 1146
-        height: 729
+        width: 2048
+        height: 862
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 17e9ff59105fd4f96bfe967e3c663d7d
     internalID: 0
     vertices: []
     indices: 
