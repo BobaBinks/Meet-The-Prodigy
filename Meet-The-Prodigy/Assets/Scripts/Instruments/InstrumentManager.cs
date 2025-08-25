@@ -13,6 +13,7 @@ public class InstrumentManager : MonoBehaviour
 
 
     [SerializeField] List<InstrumentBase> instruments;
+    [SerializeField] PlayerVisuals playerVisuals;
     private InstrumentBase currInstrument;
 
     private void Start()
@@ -105,5 +106,11 @@ public class InstrumentManager : MonoBehaviour
 
         // activate instrument
         currInstrument.gameObject.SetActive(true);
+
+        // set the player sprite to hold the right instrument
+        if (!playerVisuals)
+            return;
+
+        playerVisuals.SetCurrentInstrumentVisual(instrument);
     }
 }
