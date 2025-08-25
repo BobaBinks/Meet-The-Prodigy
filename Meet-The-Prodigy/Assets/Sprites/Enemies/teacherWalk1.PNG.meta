@@ -142,37 +142,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: teacherWalk1_0
-      rect:
-        serializedVersion: 2
-        x: 752
-        y: 1205
-        width: 463
-        height: 505
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: bc02b9ce88f7d7200800000000000000
-      internalID: 179439786226557131
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: teacherWalk1_1
       rect:
         serializedVersion: 2
-        x: 778
+        x: 746
         y: 219
-        width: 416
-        height: 999
+        width: 483
+        height: 1509
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -189,7 +167,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a4ae5b7647f88474489ae1680527ca5b
     internalID: 0
     vertices: []
     indices: 

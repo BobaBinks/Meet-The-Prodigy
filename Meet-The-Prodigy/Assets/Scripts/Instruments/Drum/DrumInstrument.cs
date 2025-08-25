@@ -5,7 +5,7 @@ public class DrumInstrument : InstrumentBase
 {
     [SerializeField] Rigidbody2D playerRB;
     [SerializeField] float force = 10f;
-    [SerializeField] Collider2D collider;
+    [SerializeField] Collider2D _collider;
 
     HashSet<IDrumAffectable> drumTargets;
 
@@ -23,10 +23,8 @@ public class DrumInstrument : InstrumentBase
         mousePos.z = 0;
         lookDirection = (mousePos - transform.position).normalized;
 
-        Debug.Log($"Look Direction: {lookDirection}");
-
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        collider.transform.rotation = Quaternion.Euler(0, 0, angle);
+        _collider.transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
     public override void PlayBeat()
@@ -35,39 +33,40 @@ public class DrumInstrument : InstrumentBase
         if (playerRB)
             playerRB.AddForce(-lookDirection * force, ForceMode2D.Impulse);
 
-        // play instrument sfx
-        if (instrumentSoundManager)
-            instrumentSoundManager.PlaySound();
+        base.PlayBeat();
+    }
 
+    public override void AffectInstrumentTargets()
+    {
         if (drumTargets == null)
             return;
 
         // apply affects to all affectable targets
-        foreach(var target in drumTargets)
+        foreach (var target in drumTargets)
         {
             target.ApplyDrumEffect(force, lookDirection);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void AddInstrumentTarget(Collider2D collider)
     {
-        if (drumTargets == null)
+        if (!collider || drumTargets == null)
             return;
 
         // adds the object to drum targets if it contains the drum affectable component / interface.
-        if(collision.TryGetComponent<IDrumAffectable>(out IDrumAffectable target))
+        if (collider.TryGetComponent<IDrumAffectable>(out IDrumAffectable target))
         {
             drumTargets.Add(target);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public override void RemoveInstrumentTarget(Collider2D collider)
     {
-        if (drumTargets == null)
+        if (drumTargets == null || !collider)
             return;
 
         // adds the object to drum targets if it contains the drum affectable component / interface.
-        if (collision.TryGetComponent<IDrumAffectable>(out IDrumAffectable target))
+        if (collider.TryGetComponent<IDrumAffectable>(out IDrumAffectable target))
         {
             drumTargets.Remove(target);
         }
