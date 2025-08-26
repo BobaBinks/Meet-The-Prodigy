@@ -2,6 +2,11 @@ using UnityEngine;
 
 public abstract class InstrumentBase : MonoBehaviour
 {
+    [Header("Instrument Cone")]
+    [SerializeField] protected Collider2D _collider;
+    public Collider2D Collider2D => _collider;
+
+
     [Header("Sound Manager"), Tooltip("For playing instrument sound effects")]
     [SerializeField] protected InstrumentSoundManager instrumentSoundManager;
 

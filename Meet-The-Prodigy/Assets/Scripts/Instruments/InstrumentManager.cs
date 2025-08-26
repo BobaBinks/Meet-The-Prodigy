@@ -56,6 +56,23 @@ public class InstrumentManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (!currInstrument || !currInstrument.Collider2D)
+            return;
+
+        // get mouse position
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+        Vector2 lookDirection = (mousePos - transform.position).normalized;
+
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        currInstrument.Collider2D.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        if (playerVisuals && playerVisuals.CurrSpriteFlipper)
+            playerVisuals.CurrSpriteFlipper.FlipByDirection(lookDirection);
+    }
+
     /// <summary>
     /// Switch to current equipped instrument to drum instrument.
     /// </summary>
