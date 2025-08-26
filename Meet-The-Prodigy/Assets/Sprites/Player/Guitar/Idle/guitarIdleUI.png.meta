@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4c73a27bc2c46462ba312843b56d02d7
+guid: b616c4f89d0613e4f83a773110c99fd3
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -129,10 +129,10 @@ TextureImporter:
       name: guitarIdle1_0
       rect:
         serializedVersion: 2
-        x: 112
-        y: 445
-        width: 1449
-        height: 1068
+        x: 1003
+        y: 623
+        width: 544
+        height: 466
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
