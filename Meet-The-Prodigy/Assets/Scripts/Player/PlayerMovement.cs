@@ -2,44 +2,46 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(Animator), typeof(SpriteFlipper))]
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] PlayerVisuals playerVisuals;
+    [SerializeField] GroundCheck groundChecker;
+
     [Header("Movement Parameters")]
     [SerializeField][Range(0, 100)] float jumpPower = 5f;
     [SerializeField][Range(0, 100)] float moveSpeed = 5f;
-
-    [SerializeField] GroundCheck groundChecker;
 
     bool wasGrounded;
     Vector2 moveInput;
     
     Animator animator;
     Rigidbody2D rigidBody;
-    SpriteFlipper spriteFlipper;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
-        spriteFlipper = GetComponent<SpriteFlipper>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(moveInput.sqrMagnitude > 0 && spriteFlipper)
-            spriteFlipper.FlipByDirection(rigidBody.linearVelocity);
+        // get current sprite flipper and flip
+        if(playerVisuals &&
+           playerVisuals.CurrSpriteFlipper
+           && moveInput.sqrMagnitude > 0)
+            playerVisuals.CurrSpriteFlipper.FlipByDirection(rigidBody.linearVelocity);
 
         if (!groundChecker)
             return;
 
-        bool isGrounded = groundChecker.IsGrounded();
+        bool isGrounded = groundChecker.isGrounded;
 
         // was in the air but just landed
-        if(!wasGrounded && isGrounded)
+        if(!wasGrounded && isGrounded &&
+            playerVisuals && playerVisuals.CurrAnimator)
         {
-            animator.SetBool("isJumping", false);
+            playerVisuals.CurrAnimator.SetBool("isJumping", false);
             PlayLandingSound();
         }
 
@@ -58,11 +60,12 @@ public class PlayerMovement : MonoBehaviour
             rigidBody.linearVelocity = new Vector2(moveInput.x * moveSpeed, rigidBody.linearVelocityY);
         }
 
-        if (!animator)
+        // if cant find player animator, return
+        if (!playerVisuals && playerVisuals.CurrAnimator)
             return;
 
-        animator.SetFloat("xVelocity", Math.Abs(rigidBody.linearVelocity.x));
-        animator.SetFloat("yVelocity", rigidBody.linearVelocity.y);
+        playerVisuals.CurrAnimator.SetFloat("xVelocity", Math.Abs(rigidBody.linearVelocity.x));
+        playerVisuals.CurrAnimator.SetFloat("yVelocity", rigidBody.linearVelocity.y);
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -76,11 +79,6 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         rigidBody.AddForceY(jumpPower, ForceMode2D.Impulse);
-
-        if (!animator)
-            return;
-
-        animator.SetBool("isJumping", true);
 
         PlayJumpStartSound();
     }
@@ -107,22 +105,5 @@ public class PlayerMovement : MonoBehaviour
         SoundManager.Instance.PlaySoundEffect(clip);
     }
 
-    public void OnStep()
-    {
-        // sound effect
-        if (!SoundManager.Instance || !SoundLibrary.Instance || (groundChecker && !groundChecker.isGrounded))
-            return;
 
-        // get random footstep
-        int clipIndex = UnityEngine.Random.Range((int)SoundLibrary.Player.FOOTSTEP_1, (int)SoundLibrary.Player.FOOTSTEP_5 + 1);
-
-        // convert back int back to enum
-        SoundLibrary.Player footStep = (SoundLibrary.Player)clipIndex;
-
-        // retrieve the audio clip
-        AudioClip clip = SoundLibrary.Instance.GetAudioClip(footStep);
-
-        SoundManager.Instance.PlaySoundEffect(clip);
- 
-    }
 }

@@ -147,10 +147,10 @@ TextureImporter:
         serializedVersion: 2
         x: 473
         y: 827
-        width: 1102
-        height: 373
+        width: 1146
+        height: 498
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -163,33 +163,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: mouseSleep1_1
-      rect:
-        serializedVersion: 2
-        x: 1449
-        y: 1121
-        width: 142
-        height: 98
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f168f7cfc5820f0a0800000000000000
-      internalID: -6849930653392206305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 724dc45e34832f24185fb653023ac97e
     internalID: 0
     vertices: []
     indices: 

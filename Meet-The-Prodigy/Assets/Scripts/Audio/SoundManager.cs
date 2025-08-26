@@ -41,7 +41,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusic(SoundLibrary.Instance.GetAudioClip(SoundLibrary.Music.MENU),
+        PlayMusic(SoundLibrary.Instance.GetAudioClip(SoundLibrary.Music.GAME),
             loop: true);
     }
 

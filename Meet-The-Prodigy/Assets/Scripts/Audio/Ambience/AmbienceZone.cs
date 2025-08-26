@@ -10,12 +10,12 @@ public class AmbienceZone : MonoBehaviour
     [Tooltip("Maximum distance from the zone's collider at which the ambience is still audible. " +
         "At this distance the volume fades to 0; closer distances fade up to full volume.")]
     [SerializeField] float fadeDistance = 5f;
-    Collider2D collider;
+    Collider2D _collider;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        collider = GetComponent<Collider2D>();
+        _collider = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -52,14 +52,14 @@ public class AmbienceZone : MonoBehaviour
             return float.NaN;
         }
 
-        if (!collider)
+        if (!_collider)
         {
             Debug.Log($"AmbienceZone {name}: does not have a collider.");
             return float.NaN;
         }
 
         Vector2 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y);
-        Vector2 closestPoint = collider.ClosestPoint(playerPosition);
+        Vector2 closestPoint = _collider.ClosestPoint(playerPosition);
 
         return (closestPoint - playerPosition).magnitude;
     }
