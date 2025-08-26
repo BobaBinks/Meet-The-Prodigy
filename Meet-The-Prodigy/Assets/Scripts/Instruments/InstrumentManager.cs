@@ -11,7 +11,6 @@ public class InstrumentManager : MonoBehaviour
         FLUTE
     }
 
-
     [SerializeField] List<InstrumentBase> instruments;
     [SerializeField] PlayerVisuals playerVisuals;
     private InstrumentBase currInstrument;
@@ -47,7 +46,14 @@ public class InstrumentManager : MonoBehaviour
             return;
 
         if (context.performed)
+        {
             currInstrument.PlayBeat();
+
+            if (!playerVisuals)
+                return;
+
+            playerVisuals.CurrAnimator?.Play(currInstrument.PlayAnimationName);
+        }
     }
 
     /// <summary>

@@ -5,6 +5,9 @@ public abstract class InstrumentBase : MonoBehaviour
     [Header("Sound Manager"), Tooltip("For playing instrument sound effects")]
     [SerializeField] protected InstrumentSoundManager instrumentSoundManager;
 
+    [SerializeField] protected string playAnimationName = "DEFUALT_PLAY_ANIMATION_NAME";
+    public string PlayAnimationName => playAnimationName;
+
     public virtual void PlayBeat()
     {
         // play instrument sfx

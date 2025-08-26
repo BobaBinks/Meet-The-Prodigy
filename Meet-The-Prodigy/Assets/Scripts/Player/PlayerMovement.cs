@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         if(!wasGrounded && isGrounded &&
             playerVisuals && playerVisuals.CurrAnimator)
         {
-            playerVisuals.CurrAnimator.SetBool("isJumping", false);
+            playerVisuals.CurrAnimator.SetTrigger("land");
             PlayLandingSound();
         }
 
@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         playerVisuals.CurrAnimator.SetFloat("xVelocity", Math.Abs(rigidBody.linearVelocity.x));
+
         playerVisuals.CurrAnimator.SetFloat("yVelocity", rigidBody.linearVelocity.y);
     }
 
@@ -78,9 +79,12 @@ public class PlayerMovement : MonoBehaviour
         if (groundChecker && !groundChecker.isGrounded || !rigidBody)
             return;
 
-        rigidBody.AddForceY(jumpPower, ForceMode2D.Impulse);
-
-        PlayJumpStartSound();
+        if (context.performed)
+        {
+            playerVisuals.CurrAnimator.SetTrigger("jump");
+            rigidBody.AddForceY(jumpPower, ForceMode2D.Impulse);
+            PlayJumpStartSound();
+        }
     }
 
     private void PlayJumpStartSound()

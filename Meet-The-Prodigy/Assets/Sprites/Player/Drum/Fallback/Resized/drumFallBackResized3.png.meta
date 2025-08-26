@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0402eb4efe38844a2bd7810f8659933b
+guid: ba9a9468424d74da0b9e80e607985f81
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7738837796891288330
-    second: drumFallBackResized1_0
+      213: 3531351064226384185
+    second: drumFallBackResized3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 35
+  spritePixelsToUnits: 45
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -109,27 +109,53 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: drumFallBackResized1_0
+      name: drumFallBackResized3_0
       rect:
         serializedVersion: 2
-        x: 187
-        y: 1496
-        width: 1254
-        height: 860
+        x: 25
+        y: 1512
+        width: 1591
+        height: 798
       alignment: 9
-      pivot: {x: 0.44930953, y: 0.51847875}
+      pivot: {x: 0.60625535, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6fc9ded96002a9490800000000000000
-      internalID: -7738837796891288330
+      spriteID: 93949604511e10130800000000000000
+      internalID: 3531351064226384185
       vertices: []
       indices: 
       edges: []
@@ -138,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d3bef5d08663747168f58cfe8c8fa99d
+    spriteID: 006f4e324d16d460e84c35598a0066ad
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      drumFallBackResized1_0: -7738837796891288330
+      drumFallBackResized3_0: 3531351064226384185
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
