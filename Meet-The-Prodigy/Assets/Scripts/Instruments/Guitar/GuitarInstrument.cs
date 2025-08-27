@@ -18,7 +18,8 @@ public class GuitarInstrument : InstrumentBase
             return;
 
         // apply affects to all affectable targets
-        foreach (var target in guitarTargets)
+        // operate on new list in case of modification to original list while apply effects
+        foreach (var target in new List<IGuitarAffectable>(guitarTargets))
         {
             target.ApplyGuitarEffect(force, lookDirection);
         }

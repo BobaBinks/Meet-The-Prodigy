@@ -23,5 +23,10 @@ public class DamageOnTouch : MonoBehaviour
         if (hp == null || hp.IsDead) return;
 
         hp.TakeDamage(damage);
+
+        if(SoundManager.Instance && SoundLibrary.Instance)
+        {
+            SoundManager.Instance.PlaySoundEffect(SoundLibrary.Instance.GetAudioClip(SoundLibrary.Player.PLAYER_HIT));
+        }
     }
 }

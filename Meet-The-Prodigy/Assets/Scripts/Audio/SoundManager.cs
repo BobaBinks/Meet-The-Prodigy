@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 using System.Collections.Generic;
+using System;
 
 public class SoundManager : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class SoundManager : MonoBehaviour
     [SerializeField] AudioMixerSnapshot audioMixerSnapshotPaused;
 
     bool isPause = false;
+
+    public static Action<float> OnVolumeChange;
 
     private void Awake()
     {
