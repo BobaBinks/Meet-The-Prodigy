@@ -60,6 +60,12 @@ public class SoundLibrary: MonoBehaviour
         GAME,
     }
 
+    public enum UI 
+    {
+        BUTTON_HOVER,
+        BUTTON_PRESS,
+    }
+
     #region Clips
     [Header("Player Clips")]
     [SerializeField] List<AudioClip> playerClips;
@@ -78,6 +84,9 @@ public class SoundLibrary: MonoBehaviour
 
     [Header("Drum")]
     [SerializeField] List<AudioClip> drumClips;
+
+    [Header("UI")]
+    [SerializeField] List<AudioClip> uiClips;
     #endregion
 
     private void Awake()
@@ -151,6 +160,16 @@ public class SoundLibrary: MonoBehaviour
             return drumClips[index];
 
         Debug.LogWarning($"Drum sound '{sound}' not assigned.");
+        return null;
+    }
+
+    public AudioClip GetAudioClip(UI sound)
+    {
+        int index = (int)sound;
+        if (index >= 0 && index < uiClips.Count)
+            return uiClips[index];
+
+        Debug.LogWarning($"UI sound '{sound}' not assigned.");
         return null;
     }
 
