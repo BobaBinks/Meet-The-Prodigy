@@ -7,8 +7,6 @@ public class FluteInstrument : InstrumentBase
     [SerializeField] float sleepDuration = 3f;
     HashSet<IFluteAffectable> fluteTargets;
 
-    Vector2 lookDirection;
-
     void Start()
     {
         fluteTargets = new HashSet<IFluteAffectable>();

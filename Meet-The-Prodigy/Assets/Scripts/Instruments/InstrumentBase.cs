@@ -4,6 +4,8 @@ public abstract class InstrumentBase : MonoBehaviour
 {
     [Header("Instrument Cone")]
     [SerializeField] protected Collider2D _collider;
+    public Vector2 lookDirection;
+
     public Collider2D Collider2D => _collider;
 
 

@@ -8,8 +8,6 @@ public class DrumInstrument : InstrumentBase
 
     HashSet<IDrumAffectable> drumTargets;
 
-    Vector2 lookDirection;
-
     private void Start()
     {
         drumTargets = new HashSet<IDrumAffectable>();

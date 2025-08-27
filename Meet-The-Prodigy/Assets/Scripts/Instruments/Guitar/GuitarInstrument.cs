@@ -4,7 +4,6 @@ using System.Collections.Generic;
 public class GuitarInstrument : InstrumentBase
 {
     [SerializeField] float force = 10f;
-    Vector2 lookDirection;
 
     HashSet<IGuitarAffectable> guitarTargets;
 
