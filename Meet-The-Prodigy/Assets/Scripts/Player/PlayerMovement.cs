@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     Rigidbody2D rigidBody;
 
+    Vector2 spriteDirection;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -28,9 +30,8 @@ public class PlayerMovement : MonoBehaviour
     {
         // get current sprite flipper and flip
         if(playerVisuals &&
-           playerVisuals.CurrSpriteFlipper
-           && moveInput.sqrMagnitude > 0)
-            playerVisuals.CurrSpriteFlipper.FlipByDirection(rigidBody.linearVelocity);
+           playerVisuals.CurrSpriteFlipper)
+            playerVisuals.CurrSpriteFlipper.FlipByDirection(spriteDirection);
 
         if (!groundChecker)
             return;
@@ -54,10 +55,11 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         //rigidBody.AddForce(new Vector2(moveInput.x * moveSpeed, 0), ForceMode2D.Force);
-
-        if(moveInput.sqrMagnitude > 0 && groundChecker && groundChecker.isGrounded)
+        spriteDirection = rigidBody.linearVelocity;
+        if (moveInput.sqrMagnitude > 0 && groundChecker && groundChecker.isGrounded)
         {
             rigidBody.linearVelocity = new Vector2(moveInput.x * moveSpeed, rigidBody.linearVelocityY);
+
         }
 
         // if cant find player animator, return
