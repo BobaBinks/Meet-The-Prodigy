@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     Animator animator;
     Rigidbody2D rigidBody;
 
+    Vector2 spriteDirection;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -28,9 +30,8 @@ public class PlayerMovement : MonoBehaviour
     {
         // get current sprite flipper and flip
         if(playerVisuals &&
-           playerVisuals.CurrSpriteFlipper
-           && moveInput.sqrMagnitude > 0)
-            playerVisuals.CurrSpriteFlipper.FlipByDirection(rigidBody.linearVelocity);
+           playerVisuals.CurrSpriteFlipper)
+            playerVisuals.CurrSpriteFlipper.FlipByDirection(spriteDirection);
 
         if (!groundChecker)
             return;
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         if(!wasGrounded && isGrounded &&
             playerVisuals && playerVisuals.CurrAnimator)
         {
-            playerVisuals.CurrAnimator.SetBool("isJumping", false);
+            playerVisuals.CurrAnimator.SetTrigger("land");
             PlayLandingSound();
         }
 
@@ -54,10 +55,11 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         //rigidBody.AddForce(new Vector2(moveInput.x * moveSpeed, 0), ForceMode2D.Force);
-
-        if(moveInput.sqrMagnitude > 0 && groundChecker && groundChecker.isGrounded)
+        spriteDirection = rigidBody.linearVelocity;
+        if (moveInput.sqrMagnitude > 0 && groundChecker && groundChecker.isGrounded)
         {
             rigidBody.linearVelocity = new Vector2(moveInput.x * moveSpeed, rigidBody.linearVelocityY);
+
         }
 
         // if cant find player animator, return
@@ -65,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         playerVisuals.CurrAnimator.SetFloat("xVelocity", Math.Abs(rigidBody.linearVelocity.x));
+
         playerVisuals.CurrAnimator.SetFloat("yVelocity", rigidBody.linearVelocity.y);
     }
 
@@ -78,9 +81,12 @@ public class PlayerMovement : MonoBehaviour
         if (groundChecker && !groundChecker.isGrounded || !rigidBody)
             return;
 
-        rigidBody.AddForceY(jumpPower, ForceMode2D.Impulse);
-
-        PlayJumpStartSound();
+        if (context.performed)
+        {
+            playerVisuals.CurrAnimator.SetTrigger("jump");
+            rigidBody.AddForceY(jumpPower, ForceMode2D.Impulse);
+            PlayJumpStartSound();
+        }
     }
 
     private void PlayJumpStartSound()
