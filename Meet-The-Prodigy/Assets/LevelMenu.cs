@@ -1,9 +1,24 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class LevelMenu : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Button[] buttons;
+
+    public void Awake()
+    {
+        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        for (int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].interactable = false;
+        }
+        for (int i = 0; i < unlockedLevel; i++)
+        {
+            buttons[i].interactable = true;
+        }
+    }
     void Start()
     {
 
@@ -15,9 +30,8 @@ public class LevelMenu : MonoBehaviour
 
     }
 
-    public void OpenLevel(int levelID)
+    public void OpenLevel(int _)
     {
-        string levelname = "level 1" + levelID;
-        SceneManager.LoadScene(levelname);
+        SceneManager.LoadScene("GameScene");
     }
 }
