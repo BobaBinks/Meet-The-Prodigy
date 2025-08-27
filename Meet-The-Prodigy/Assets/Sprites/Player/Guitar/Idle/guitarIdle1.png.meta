@@ -142,20 +142,20 @@ TextureImporter:
       name: guitarIdle1_0
       rect:
         serializedVersion: 2
-        x: 122
-        y: 441
-        width: 1428
-        height: 1069
+        x: 123
+        y: 442
+        width: 1426
+        height: 1067
       alignment: 9
       pivot: {x: 0.75, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0d8023340837cbdf0800000000000000
-      internalID: -163128491771819824
+      spriteID: b0d2ec8e8ee083049ab67598c66df12f
+      internalID: 592214278
       vertices: []
       indices: 
       edges: []
@@ -164,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: a4a1183a4fc86824d8cad46cfa0dfba0
+    spriteID: 7f2eec34d258fe64db0b1523cea9a058
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      guitarIdle1_0: -163128491771819824
+      guitarIdle1_0: 592214278
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

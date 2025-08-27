@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1955119585463631365}
   - component: {fileID: 2125955657015314815}
   - component: {fileID: 5754690413281499548}
+  - component: {fileID: 3880852532159912231}
   m_Layer: 8
   m_Name: Teacher
   m_TagString: Untagged
@@ -245,3 +246,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333a2b7b340487741a9b95588432ba1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3880852532159912231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5141123095077924344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77e5f93ce01b5604b96ce41e31963cb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
