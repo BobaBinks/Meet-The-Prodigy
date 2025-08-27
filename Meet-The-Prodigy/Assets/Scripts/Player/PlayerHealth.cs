@@ -75,6 +75,9 @@ public class PlayerHealth : MonoBehaviour
             foreach (var m in disableOnDeath)
                 if (m) m.enabled = false;
 
+        if(SoundManager.Instance && SoundLibrary.Instance)
+            SoundManager.Instance.PlaySoundEffect(SoundLibrary.Instance.GetAudioClip(SoundLibrary.SoundEvents.LOSE));
+
         onDeath?.Invoke();
     }
 

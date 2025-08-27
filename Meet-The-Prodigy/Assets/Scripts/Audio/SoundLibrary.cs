@@ -74,6 +74,11 @@ public class SoundLibrary: MonoBehaviour
         WALL_CRUMBLE,
     }
 
+    public enum SoundEvents
+    {
+        WIN,
+        LOSE,
+    }
 
     #region Clips
     [Header("Player Clips")]
@@ -97,9 +102,11 @@ public class SoundLibrary: MonoBehaviour
     [Header("UI")]
     [SerializeField] List<AudioClip> uiClips;
 
-
     [Header("Obstacle")]
     [SerializeField] List<AudioClip> obstaclesClips;
+
+    [Header("Events")]
+    [SerializeField] List<AudioClip> eventsClips;
     #endregion
 
     private void Awake()
@@ -182,7 +189,16 @@ public class SoundLibrary: MonoBehaviour
         if (index >= 0 && index < obstaclesClips.Count)
             return obstaclesClips[index];
 
-        Debug.LogWarning($"Wall sound '{sound}' not assigned.");
+        Debug.LogWarning($"Obstacle sound '{sound}' not assigned.");
+        return null;
+    }
+    public AudioClip GetAudioClip(SoundEvents sound)
+    {
+        int index = (int)sound;
+        if (index >= 0 && index < eventsClips.Count)
+            return eventsClips[index];
+
+        Debug.LogWarning($"Events sound '{sound}' not assigned.");
         return null;
     }
 
