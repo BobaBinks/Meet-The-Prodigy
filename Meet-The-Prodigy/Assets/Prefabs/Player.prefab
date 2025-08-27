@@ -570,6 +570,7 @@ GameObject:
   - component: {fileID: 5012746227337687617}
   - component: {fileID: 7601806473655159776}
   - component: {fileID: 991245913076829430}
+  - component: {fileID: -5193646143620487406}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -865,6 +866,28 @@ MonoBehaviour:
   groundChecker: {fileID: 8386642559943209599}
   jumpPower: 20
   moveSpeed: 20
+--- !u!114 &-5193646143620487406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4015179080329517182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4592c07c49ad58941b21620a32182d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 3
+  currentHP: 0
+  invincibleDuration: 1
+  disableOnDeath: []
+  onDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8504320930054400265
 GameObject:
   m_ObjectHideFlags: 0

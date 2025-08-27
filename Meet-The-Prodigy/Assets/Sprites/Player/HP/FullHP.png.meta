@@ -1,13 +1,58 @@
 fileFormatVersion: 2
-guid: 179c331d88f8f409abf420fa2038ab91
+guid: 0defb54cc44948e44b745ff7aa2b3696
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3412553746802986224
-    second: fluteIdle 2_0
+      213: -6028301312397010952
+    second: FullHP_0
   - first:
-      213: 2078657862543092214
-    second: fluteIdle 2_1
+      213: -58090689595423024
+    second: FullHP_1
+  - first:
+      213: -2755450257011966299
+    second: FullHP_2
+  - first:
+      213: -4051314834558673416
+    second: FullHP_3
+  - first:
+      213: -184591387819088118
+    second: FullHP_4
+  - first:
+      213: 4250140702927091005
+    second: FullHP_5
+  - first:
+      213: -2722620415416673479
+    second: FullHP_6
+  - first:
+      213: -8980502816798184576
+    second: FullHP_7
+  - first:
+      213: 4574475133837282234
+    second: FullHP_8
+  - first:
+      213: -4943137723986258607
+    second: FullHP_9
+  - first:
+      213: 8299440789505924552
+    second: FullHP_10
+  - first:
+      213: 1619921414316940562
+    second: FullHP_11
+  - first:
+      213: -4702996245943237264
+    second: FullHP_12
+  - first:
+      213: 4878080215025199387
+    second: FullHP_13
+  - first:
+      213: 9052271092489500021
+    second: FullHP_14
+  - first:
+      213: -2620593607544336373
+    second: FullHP_15
+  - first:
+      213: -9213860726752570118
+    second: FullHP_16
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +85,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +99,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 48
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,7 +123,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -88,6 +133,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -116,45 +174,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: fluteIdle 2_0
+      name: FullHP_7
       rect:
         serializedVersion: 2
-        x: 137
-        y: 435
-        width: 1546
-        height: 1074
+        x: 12
+        y: 11
+        width: 976
+        height: 961
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0fcce1f5d83db5f20800000000000000
-      internalID: 3412553746802986224
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: fluteIdle 2_1
-      rect:
-        serializedVersion: 2
-        x: 2033
-        y: 1183
-        width: 15
-        height: 15
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6f924721050e8dc10800000000000000
-      internalID: 2078657862543092214
+      spriteID: 08b6954d448de5380800000000000000
+      internalID: -8980502816798184576
       vertices: []
       indices: 
       edges: []
@@ -163,7 +199,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 56902770a4c1d254b83c78fec0271f4b
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +209,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      fluteIdle 2_0: 3412553746802986224
-      fluteIdle 2_1: 2078657862543092214
+      FullHP_7: -8980502816798184576
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
