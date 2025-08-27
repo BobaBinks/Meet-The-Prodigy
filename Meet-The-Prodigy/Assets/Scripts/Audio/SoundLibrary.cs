@@ -20,6 +20,9 @@ public class SoundLibrary: MonoBehaviour
     public enum Enemy
     {
         FOOTSTEP_1,
+        FOOTSTEP_2,
+        TEACHER_SHOUTING,
+        RAT_SQUEAK,
     }
 
     public enum Electric_Guitar 
@@ -66,6 +69,12 @@ public class SoundLibrary: MonoBehaviour
         BUTTON_PRESS,
     }
 
+    public enum Obstacle
+    {
+        WALL_CRUMBLE,
+    }
+
+
     #region Clips
     [Header("Player Clips")]
     [SerializeField] List<AudioClip> playerClips;
@@ -87,6 +96,10 @@ public class SoundLibrary: MonoBehaviour
 
     [Header("UI")]
     [SerializeField] List<AudioClip> uiClips;
+
+
+    [Header("Obstacle")]
+    [SerializeField] List<AudioClip> obstaclesClips;
     #endregion
 
     private void Awake()
@@ -160,6 +173,16 @@ public class SoundLibrary: MonoBehaviour
             return drumClips[index];
 
         Debug.LogWarning($"Drum sound '{sound}' not assigned.");
+        return null;
+    }
+
+    public AudioClip GetAudioClip(Obstacle sound)
+    {
+        int index = (int)sound;
+        if (index >= 0 && index < obstaclesClips.Count)
+            return obstaclesClips[index];
+
+        Debug.LogWarning($"Wall sound '{sound}' not assigned.");
         return null;
     }
 
