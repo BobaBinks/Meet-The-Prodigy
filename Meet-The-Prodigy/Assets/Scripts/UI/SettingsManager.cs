@@ -67,9 +67,9 @@ public class SettingsManager : MonoBehaviour
     private void OpenHub()
     {
         paused = true;
+        if (SoundManager.Instance) SoundManager.Instance.OnPause(true);
         Time.timeScale = 0f;
         ShowHub();
-        if (SoundManager.Instance) SoundManager.Instance.OnPause(true);
     }
 
     private void ShowHub()
@@ -143,7 +143,7 @@ public class SettingsManager : MonoBehaviour
 
     void OnDisable()
     {
-        if (Time.timeScale == 0f) Time.timeScale = 1f;
         if (SoundManager.Instance) SoundManager.Instance.OnPause(false);
+        if (Time.timeScale == 0f) Time.timeScale = 1f;
     }
 }
