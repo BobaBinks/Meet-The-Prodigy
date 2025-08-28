@@ -13,13 +13,18 @@ public class DrumInstrument : InstrumentBase
         drumTargets = new HashSet<IDrumAffectable>();
     }
 
-    public override void PlayBeat()
+    public override bool PlayBeat()
     {
+        if (onCooldown)
+            return false;
+
         // apply force to player in the opposite direction
         if (playerRB)
             playerRB.AddForce(-lookDirection * force, ForceMode2D.Impulse);
 
         base.PlayBeat();
+
+        return true;
     }
 
     public override void AffectInstrumentTargets()
