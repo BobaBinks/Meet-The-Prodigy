@@ -8,7 +8,7 @@ public class DrumSoundManager : InstrumentSoundManager
         {
             SoundLibrary.Drum[] clips = (SoundLibrary.Drum[])System.Enum.GetValues(typeof(SoundLibrary.Drum));
             AudioClip audioClip = SoundLibrary.Instance.GetAudioClip((SoundLibrary.Drum)nextClipIndex);
-            SoundManager.Instance.PlayInstrumentSoundEffect(audioClip);
+            SoundManager.Instance.PlaySoundEffect(audioClip);
 
             // update and wrap around index
             UpdateNextClipIndex(clips.Length);

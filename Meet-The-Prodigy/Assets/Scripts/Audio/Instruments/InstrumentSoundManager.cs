@@ -36,12 +36,4 @@ public abstract class InstrumentSoundManager : MonoBehaviour
         // wrap around index
         nextClipIndex = (int)Mathf.Repeat(nextClipIndex, length);
     }
-
-    protected virtual void Update()
-    {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    PlaySound();
-        //}
-    }
 }

@@ -9,7 +9,7 @@ public class ElectricGuitarSoundManager : InstrumentSoundManager
         {
             SoundLibrary.Electric_Guitar[] guitarClips = (SoundLibrary.Electric_Guitar[])System.Enum.GetValues(typeof(SoundLibrary.Electric_Guitar));
             AudioClip audioClip = SoundLibrary.Instance.GetAudioClip((SoundLibrary.Electric_Guitar)nextClipIndex);
-            SoundManager.Instance.PlayInstrumentSoundEffect(audioClip);
+            SoundManager.Instance.PlaySoundEffect(audioClip);
 
             // update and wrap around index
             UpdateNextClipIndex(guitarClips.Length);
