@@ -41,7 +41,7 @@ AudioSource:
   m_GameObject: {fileID: 852198179428716989}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 8962591953967765772, guid: e9e57105c541d254e9fc769e9210c6b0, type: 2}
+  OutputAudioMixerGroup: {fileID: 1726663109260922655, guid: e9e57105c541d254e9fc769e9210c6b0, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
@@ -228,8 +228,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68fd3c7988a511f4aad757dcb10ee8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerClips: []
-  enemyClips: []
+  playerClips:
+  - {fileID: 8300000, guid: a2afe681f536c7b4092f0cbbd4953e12, type: 3}
+  - {fileID: 8300000, guid: b25225c72201cd740b16b95b86d57940, type: 3}
+  - {fileID: 8300000, guid: 5e8e6e435e65fe146b588b8a9d2df461, type: 3}
+  - {fileID: 8300000, guid: 8900ae4b297a017448ddb78ea0c2d4da, type: 3}
+  - {fileID: 8300000, guid: be6f9c5983062b9488c5423a7e1fd1e0, type: 3}
+  - {fileID: 8300000, guid: 2244aa424da7d2f439f4c53fa73e8b53, type: 3}
+  - {fileID: 8300000, guid: 9b98dcc41523d304c924ac8c027e07df, type: 3}
+  - {fileID: 8300000, guid: 37cdbcb02c3324849ac457dfc5b1058e, type: 3}
+  enemyClips:
+  - {fileID: 8300000, guid: 9a00a947fcd2e4343975d916b498e207, type: 3}
+  - {fileID: 8300000, guid: 4d6f91ffb45a5a84d874f7ae6302e687, type: 3}
+  - {fileID: 8300000, guid: 32f77c3cf39974f4abf024fd304a765d, type: 3}
+  - {fileID: 8300000, guid: d3bf6c0aa17bb1c42b694467d05abcf2, type: 3}
   musicClips:
   - {fileID: 8300000, guid: a4157eac71a524d5e85d2fb6f4649506, type: 3}
   - {fileID: 8300000, guid: 05fdb9e1a095c4194992de32f04ba638, type: 3}
@@ -240,6 +252,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a09b6707e0740b044b8f26c05f26b2da, type: 3}
   - {fileID: 8300000, guid: 4fbf9f758fe88aa409d6fcad47fa4097, type: 3}
   - {fileID: 8300000, guid: da669a48807aec2409d5fc691c0b133c, type: 3}
+  - {fileID: 8300000, guid: f2175b3fa2c4cf34c9d39b9eac140121, type: 3}
   fluteClips:
   - {fileID: 8300000, guid: 210ff4888a9139141aeb3626fcce0101, type: 3}
   - {fileID: 8300000, guid: 605c47209c53434409228b643fdbb259, type: 3}
@@ -254,6 +267,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5725116fa00834842b2142065c2a76a6, type: 3}
   - {fileID: 8300000, guid: 3edd530dbe1cef14da12ba04dd81b3cd, type: 3}
   - {fileID: 8300000, guid: 88ce79170ec0350479a399c95f923b36, type: 3}
+  - {fileID: 8300000, guid: 61fbf83f529b12a46a2264e98ee044a3, type: 3}
+  uiClips:
+  - {fileID: 8300000, guid: 8fc95a475480c0b479be697641558228, type: 3}
+  - {fileID: 8300000, guid: 301a6cd721e282446ba12460365eff6f, type: 3}
+  obstaclesClips:
+  - {fileID: 8300000, guid: 39379034b76faf044be9fed7733f4c01, type: 3}
+  eventsClips:
+  - {fileID: 8300000, guid: 84d144c27e7f08b40ae9c51716242eba, type: 3}
+  - {fileID: 8300000, guid: 9ee7935248471b6429bd025901be6c04, type: 3}
 --- !u!1 &7136314851715293390
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,7 +446,7 @@ AudioSource:
   m_GameObject: {fileID: 7569576535807054326}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 8962591953967765772, guid: e9e57105c541d254e9fc769e9210c6b0, type: 2}
+  OutputAudioMixerGroup: {fileID: 1726663109260922655, guid: e9e57105c541d254e9fc769e9210c6b0, type: 2}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
