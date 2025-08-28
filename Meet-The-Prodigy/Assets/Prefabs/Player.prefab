@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1245815474820491158}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -207,7 +207,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5241576232364447230
 Transform:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ Transform:
   m_GameObject: {fileID: 1791767631959003688}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -288,7 +288,7 @@ Animator:
   m_GameObject: {fileID: 1791767631959003688}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 85b28362e877b476b858b2c9688cea6a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 02e9775f7072b9c438ab9b62e9bb9e70, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -439,7 +439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3428530420624744234
 Transform:
   m_ObjectHideFlags: 0
@@ -449,7 +449,7 @@ Transform:
   m_GameObject: {fileID: 3566804867940579712}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -11, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -504,7 +504,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 36.604168, y: 22.3125}
+  m_Size: {x: 32.104168, y: 22.395834}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -520,7 +520,7 @@ Animator:
   m_GameObject: {fileID: 3566804867940579712}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 85b28362e877b476b858b2c9688cea6a, type: 2}
+  m_Controller: {fileID: 9100000, guid: 440106eef38c8cc4d85950a3409661b3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -588,7 +588,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2225512, y: 0.2225512, z: 0.2225512}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8601032605018264108}
@@ -864,7 +864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerVisuals: {fileID: 1714175671530087489}
   groundChecker: {fileID: 8386642559943209599}
-  jumpPower: 20
+  jumpPower: 30
   moveSpeed: 20
 --- !u!114 &-5193646143620487406
 MonoBehaviour:
@@ -879,7 +879,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 3
-  currentHP: 0
+  currentHP: 3
   invincibleDuration: 1
   disableOnDeath: []
   onDamaged:
@@ -948,6 +948,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8601032605018264108}
     m_Modifications:
+    - target: {fileID: 183555566934796709, guid: 05f999ef80836cd44b99606c2e5d82f6, type: 3}
+      propertyPath: playAnimationName
+      value: flutePlay
+      objectReference: {fileID: 0}
     - target: {fileID: 1392991041516242111, guid: 05f999ef80836cd44b99606c2e5d82f6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1024,6 +1028,10 @@ PrefabInstance:
     - target: {fileID: 911675692649228856, guid: 051cb803ff7bd5948b4d8a137ee62d5f, type: 3}
       propertyPath: force
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 911675692649228856, guid: 051cb803ff7bd5948b4d8a137ee62d5f, type: 3}
+      propertyPath: playAnimationName
+      value: guitarPlay
       objectReference: {fileID: 0}
     - target: {fileID: 4239748643079530768, guid: 051cb803ff7bd5948b4d8a137ee62d5f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1118,6 +1126,10 @@ PrefabInstance:
       propertyPath: _collider
       value: 
       objectReference: {fileID: 6819614735569722884}
+    - target: {fileID: 4514103518077679640, guid: 19ac7883ffe541c439ae84302191f254, type: 3}
+      propertyPath: playAnimationName
+      value: drumPlayResized
+      objectReference: {fileID: 0}
     - target: {fileID: 7792988936073952044, guid: 19ac7883ffe541c439ae84302191f254, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
