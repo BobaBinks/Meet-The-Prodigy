@@ -101,6 +101,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6684afbba19b04e448de1d152cc1614a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  winPanel: {fileID: 0}
+  replayButton: {fileID: 0}
+  mainMenuButton: {fileID: 0}
+  mainMenuSceneName: MainMenu
 --- !u!61 &7399467840896206357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -131,7 +135,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
