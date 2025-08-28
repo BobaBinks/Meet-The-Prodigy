@@ -8,7 +8,7 @@ using System.Linq;
 public class GameOverUI : MonoBehaviour
 {
     [Header("Assign from Canvas (or leave blank to auto-find)")]
-    [SerializeField] private CanvasGroup panel;      // GameOverPanel (CanvasGroup)
+    [SerializeField] private CanvasGroup panel;
     [SerializeField] private TMP_Text titleText;     // Title (TMP), optional
     [SerializeField] private Button againButton;     // "Again"
     [SerializeField] private Button menuButton;      // "Menu"
