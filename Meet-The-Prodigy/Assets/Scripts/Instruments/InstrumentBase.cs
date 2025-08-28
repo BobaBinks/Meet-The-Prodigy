@@ -2,8 +2,18 @@ using UnityEngine;
 
 public abstract class InstrumentBase : MonoBehaviour
 {
+    [Tooltip("Instrument Cone")]
+    [SerializeField] protected Collider2D _collider;
+    [SerializeField] protected string playAnimationName = "DEFUALT_PLAY_ANIMATION_NAME";
+    [HideInInspector] public Vector2 lookDirection;
+
+    public string PlayAnimationName => playAnimationName;
+    public Collider2D Collider2D => _collider;
+
+
     [Header("Sound Manager"), Tooltip("For playing instrument sound effects")]
     [SerializeField] protected InstrumentSoundManager instrumentSoundManager;
+
 
     public virtual void PlayBeat()
     {

@@ -11,7 +11,6 @@ public class InstrumentManager : MonoBehaviour
         FLUTE
     }
 
-
     [SerializeField] List<InstrumentBase> instruments;
     [SerializeField] PlayerVisuals playerVisuals;
     private InstrumentBase currInstrument;
@@ -47,7 +46,33 @@ public class InstrumentManager : MonoBehaviour
             return;
 
         if (context.performed)
+        {
             currInstrument.PlayBeat();
+
+            if (!playerVisuals)
+                return;
+
+            playerVisuals.CurrAnimator?.Play(currInstrument.PlayAnimationName);
+        }
+    }
+
+    private void Update()
+    {
+        if (!currInstrument || !currInstrument.Collider2D)
+            return;
+
+        // get mouse position
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePos.z = 0;
+
+        Vector2 lookDirection = (mousePos - transform.position).normalized;
+        currInstrument.lookDirection = lookDirection;
+
+        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
+        currInstrument.Collider2D.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        //if (playerVisuals && playerVisuals.CurrSpriteFlipper)
+        //    playerVisuals.CurrSpriteFlipper.FlipByDirection(lookDirection);
     }
 
     /// <summary>
