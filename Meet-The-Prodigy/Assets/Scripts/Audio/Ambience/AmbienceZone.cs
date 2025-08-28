@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
-
+using System;
 [RequireComponent(typeof(Collider2D))]
 public class AmbienceZone : MonoBehaviour
 {
@@ -10,12 +10,26 @@ public class AmbienceZone : MonoBehaviour
     [Tooltip("Maximum distance from the zone's collider at which the ambience is still audible. " +
         "At this distance the volume fades to 0; closer distances fade up to full volume.")]
     [SerializeField] float fadeDistance = 5f;
+
+    float maxVolume = 1f;
     Collider2D _collider;
+
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _collider = GetComponent<Collider2D>();
+    }
+
+    private void OnEnable()
+    {
+        SoundManager.OnVolumeChange += SetMaxVolume;
+    }
+
+    private void OnDestroy()
+    {
+        SoundManager.OnVolumeChange -= SetMaxVolume;
     }
 
     // Update is called once per frame
@@ -24,6 +38,10 @@ public class AmbienceZone : MonoBehaviour
         FadeAmbienceByDistance();
     }
 
+    public void SetMaxVolume(float maxVolume)
+    {
+        this.maxVolume = Mathf.Clamp01(maxVolume);
+    }
     /// <summary>
     /// Adjusts the audio source volume based on how close the player is.
     /// </summary>
@@ -38,6 +56,9 @@ public class AmbienceZone : MonoBehaviour
             return;
 
         float volume = 1f - Mathf.Clamp01(distanceToPlayer / fadeDistance);
+
+        volume = volume > maxVolume ? maxVolume : volume;
+
         audioSource.volume = volume;
     }
 

@@ -4,9 +4,6 @@ using System.Collections.Generic;
 public class GuitarInstrument : InstrumentBase
 {
     [SerializeField] float force = 10f;
-    [SerializeField] Collider2D _collider;
-
-    Vector2 lookDirection;
 
     HashSet<IGuitarAffectable> guitarTargets;
 
@@ -15,24 +12,14 @@ public class GuitarInstrument : InstrumentBase
         guitarTargets = new HashSet<IGuitarAffectable>();
     }
 
-    private void Update()
-    {
-        // get mouse position
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.z = 0;
-        lookDirection = (mousePos - transform.position).normalized;
-
-        float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
-        _collider.transform.rotation = Quaternion.Euler(0, 0, angle);
-    }
-
     public override void AffectInstrumentTargets()
     {
         if (guitarTargets == null)
             return;
 
         // apply affects to all affectable targets
-        foreach (var target in guitarTargets)
+        // operate on new list in case of modification to original list while apply effects
+        foreach (var target in new List<IGuitarAffectable>(guitarTargets))
         {
             target.ApplyGuitarEffect(force, lookDirection);
         }
