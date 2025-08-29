@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using System;
 public class SettingsManager : MonoBehaviour
 {
     [Header("UI Roots")]
@@ -18,6 +18,7 @@ public class SettingsManager : MonoBehaviour
     [SerializeField] private string mainMenuSceneName = "MainMenu";
 
     private bool paused;
+    public static Action<bool> OnPause;
 
     void Awake()
     {
@@ -67,6 +68,7 @@ public class SettingsManager : MonoBehaviour
     private void OpenHub()
     {
         paused = true;
+        OnPause?.Invoke(paused);
         if (SoundManager.Instance) SoundManager.Instance.OnPause(true);
         Time.timeScale = 0f;
         ShowHub();
@@ -82,6 +84,7 @@ public class SettingsManager : MonoBehaviour
     public void CloseAll()
     {
         paused = false;
+        OnPause?.Invoke(paused);
         Time.timeScale = 1f;
         if (pauseHub) pauseHub.SetActive(false);
         if (settingsPage) settingsPage.SetActive(false);
