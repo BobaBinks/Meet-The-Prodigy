@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 9a36b5b4fb40b42b4a9c5f8792244669
+guid: f9999400395399349b9a40a43676c2b8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3878557786174838139
-    second: ground_0
+      213: 8538997015600982169
+    second: ground break_0
+  - first:
+      213: -5199374744749620631
+    second: ground break_1
+  - first:
+      213: -513079755698253919
+    second: ground break_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,12 +43,12 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -75,7 +81,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,23 +145,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ground_0
+      name: ground break_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2360
-        height: 313
+        x: 24
+        y: 334
+        width: 843
+        height: 442
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0d7690011a987a24092e96c8c7af25ee
-      internalID: 679176309
+      spriteID: 998640d4b8c908670800000000000000
+      internalID: 8538997015600982169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground break_1
+      rect:
+        serializedVersion: 2
+        x: 917
+        y: 719
+        width: 572
+        height: 287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 962cf05973c18d7b0800000000000000
+      internalID: -5199374744749620631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ground break_2
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 418
+        width: 475
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1af492c3eac21e8f0800000000000000
+      internalID: -513079755698253919
       vertices: []
       indices: 
       edges: []
@@ -164,7 +214,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: de5e66f05daf31f40970b6d079b9d523
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -174,7 +224,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ground_0: 679176309
+      ground break_0: 8538997015600982169
+      ground break_1: -5199374744749620631
+      ground break_2: -513079755698253919
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
