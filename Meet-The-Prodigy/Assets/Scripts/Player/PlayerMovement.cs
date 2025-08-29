@@ -75,10 +75,9 @@ public class PlayerMovement : MonoBehaviour
 
         //rigidBody.AddForce(new Vector2(moveInput.x * moveSpeed, 0), ForceMode2D.Force);
         spriteDirection = rigidBody.linearVelocity;
-        if (moveInput.sqrMagnitude > 0 && groundChecker && groundChecker.isGrounded)
+        if (moveInput.sqrMagnitude > 0)
         {
             rigidBody.linearVelocity = new Vector2(moveInput.x * moveSpeed, rigidBody.linearVelocityY);
-
         }
 
         // if cant find player animator, return
