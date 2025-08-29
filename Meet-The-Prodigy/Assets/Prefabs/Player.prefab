@@ -1032,7 +1032,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 911675692649228856, guid: 051cb803ff7bd5948b4d8a137ee62d5f, type: 3}
       propertyPath: force
-      value: 100
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 911675692649228856, guid: 051cb803ff7bd5948b4d8a137ee62d5f, type: 3}
       propertyPath: coolDownTimer
