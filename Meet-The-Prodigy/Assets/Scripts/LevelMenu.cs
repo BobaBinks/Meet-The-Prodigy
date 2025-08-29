@@ -1,37 +1,41 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 public class LevelMenu : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public Button[] buttons;
+    public Button[] buttons; 
+    private const string KEY_UNLOCKED_COUNT = "UnlockedLevel";
 
-    public void Awake()
+    private void Awake()
     {
-        int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+        int unlockedCount = PlayerPrefs.GetInt(KEY_UNLOCKED_COUNT, 1);
+        int maxToEnable = Mathf.Clamp(unlockedCount, 0, buttons.Length);
+
         for (int i = 0; i < buttons.Length; i++)
         {
-            buttons[i].interactable = false;
+            if (buttons[i] != null)
+            {
+                buttons[i].interactable = false;
+                buttons[i].onClick.RemoveAllListeners();
+            }
         }
-        for (int i = 0; i < unlockedLevel; i++)
+
+        for (int i = 0; i < maxToEnable; i++)
         {
+            if (buttons[i] == null) continue;
+
+            int levelNumber = i + 1;
             buttons[i].interactable = true;
+            buttons[i].onClick.AddListener(() => OpenLevel(levelNumber));
         }
-    }
-    void Start()
-    {
 
+        Debug.Log("[LevelMenu] UnlockedLevel=" + unlockedCount + " (enabled " + maxToEnable + " buttons)");
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OpenLevel(int levelNumber)
     {
-
-    }
-
-    public void OpenLevel(int _)
-    {
-        SceneManager.LoadScene("GameScene");
+        string levelName = $"Level {levelNumber}";
+        SceneManager.LoadScene(levelName);
     }
 }
