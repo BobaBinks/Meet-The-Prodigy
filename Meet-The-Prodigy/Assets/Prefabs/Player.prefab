@@ -864,6 +864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerVisuals: {fileID: 1714175671530087489}
   groundChecker: {fileID: 8386642559943209599}
+  playerInput: {fileID: 5012746227337687617}
   jumpPower: 30
   moveSpeed: 20
 --- !u!114 &-5193646143620487406
@@ -949,6 +950,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 8601032605018264108}
     m_Modifications:
     - target: {fileID: 183555566934796709, guid: 05f999ef80836cd44b99606c2e5d82f6, type: 3}
+      propertyPath: coolDownTimer
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 183555566934796709, guid: 05f999ef80836cd44b99606c2e5d82f6, type: 3}
       propertyPath: playAnimationName
       value: flutePlay
       objectReference: {fileID: 0}
@@ -1028,6 +1033,10 @@ PrefabInstance:
     - target: {fileID: 911675692649228856, guid: 051cb803ff7bd5948b4d8a137ee62d5f, type: 3}
       propertyPath: force
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 911675692649228856, guid: 051cb803ff7bd5948b4d8a137ee62d5f, type: 3}
+      propertyPath: coolDownTimer
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 911675692649228856, guid: 051cb803ff7bd5948b4d8a137ee62d5f, type: 3}
       propertyPath: playAnimationName
@@ -1126,6 +1135,10 @@ PrefabInstance:
       propertyPath: _collider
       value: 
       objectReference: {fileID: 6819614735569722884}
+    - target: {fileID: 4514103518077679640, guid: 19ac7883ffe541c439ae84302191f254, type: 3}
+      propertyPath: coolDownTimer
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4514103518077679640, guid: 19ac7883ffe541c439ae84302191f254, type: 3}
       propertyPath: playAnimationName
       value: drumPlayResized

@@ -84,12 +84,12 @@ public class SoundManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            isPause = !isPause;
-            OnPause(isPause);
-            Debug.Log($"Paused: {isPause}");
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    isPause = !isPause;
+        //    OnPause(isPause);
+        //    Debug.Log($"Paused: {isPause}");
+        //}
     }
 
     /// <summary>
@@ -99,9 +99,9 @@ public class SoundManager : MonoBehaviour
     public void OnPause(bool pause)
     {
         if (pause)
-            audioMixerSnapshotPaused.TransitionTo(0.1f);
+            audioMixerSnapshotPaused.TransitionTo(0.0f);
         else
-            audioMixerSnapshotUnpaused.TransitionTo(0.1f);
+            audioMixerSnapshotUnpaused.TransitionTo(0.0f);
     }
 
     /// <summary>

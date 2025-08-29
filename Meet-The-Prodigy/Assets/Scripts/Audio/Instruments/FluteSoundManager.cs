@@ -8,7 +8,7 @@ public class FluteSoundManager : InstrumentSoundManager
         {
             SoundLibrary.Flute[] clips = (SoundLibrary.Flute[])System.Enum.GetValues(typeof(SoundLibrary.Flute));
             AudioClip audioClip = SoundLibrary.Instance.GetAudioClip((SoundLibrary.Flute)nextClipIndex);
-            SoundManager.Instance.PlayInstrumentSoundEffect(audioClip);
+            SoundManager.Instance.PlaySoundEffect(audioClip);
 
             // update and wrap around index
             UpdateNextClipIndex(clips.Length);

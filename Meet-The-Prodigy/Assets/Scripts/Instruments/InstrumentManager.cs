@@ -47,12 +47,13 @@ public class InstrumentManager : MonoBehaviour
 
         if (context.performed)
         {
-            currInstrument.PlayBeat();
+            bool instrumentPlayed = currInstrument.PlayBeat();
 
             if (!playerVisuals)
                 return;
 
-            playerVisuals.CurrAnimator?.Play(currInstrument.PlayAnimationName);
+            if(instrumentPlayed)
+                playerVisuals.CurrAnimator?.Play(currInstrument.PlayAnimationName);
         }
     }
 

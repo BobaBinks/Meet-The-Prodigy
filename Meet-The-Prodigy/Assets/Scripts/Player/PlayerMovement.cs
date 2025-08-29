@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] PlayerVisuals playerVisuals;
     [SerializeField] GroundCheck groundChecker;
+    [SerializeField] PlayerInput playerInput;
 
     [Header("Movement Parameters")]
     [SerializeField][Range(0, 100)] float jumpPower = 5f;
@@ -23,6 +24,24 @@ public class PlayerMovement : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rigidBody = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable()
+    {
+        SettingsManager.OnPause += OnPause;
+    }
+
+    private void OnDisable()
+    {
+        SettingsManager.OnPause -= OnPause;
+    }
+
+    private void OnPause(bool pause)
+    {
+        if (!playerInput)
+            return;
+
+        playerInput.enabled = !pause;
     }
 
     // Update is called once per frame
