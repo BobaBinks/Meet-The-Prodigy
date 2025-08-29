@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
-public class Teacher : MonoBehaviour, IDrumAffectable
+public class Teacher : MonoBehaviour, IDrumAffectable, IFluteAffectable
 {
     Rigidbody2D rb;
     EnemyPatrol2D patrol;
@@ -20,5 +20,12 @@ public class Teacher : MonoBehaviour, IDrumAffectable
         rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
         if (flash) flash.Hit(-direction, rb);
         if (patrol) patrol.Pause(0.1f);
+    }
+
+    public void ApplySleepEffect(float sleepDuration)
+    {
+        sleepDuration = Mathf.Max(0, sleepDuration);
+        if (patrol)
+            patrol.Pause(sleepDuration);
     }
 }
