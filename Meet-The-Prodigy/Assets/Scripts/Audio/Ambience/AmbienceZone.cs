@@ -25,11 +25,25 @@ public class AmbienceZone : MonoBehaviour
     private void OnEnable()
     {
         SoundManager.OnVolumeChange += SetMaxVolume;
+        CutScene.OnCutSceneStart += OnCutSceneStart;
+        CutScene.OnCutSceneEnd += OnCutSceneEnd;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         SoundManager.OnVolumeChange -= SetMaxVolume;
+        CutScene.OnCutSceneStart -= OnCutSceneStart;
+        CutScene.OnCutSceneEnd -= OnCutSceneEnd;
+    }
+
+    private void OnCutSceneStart()
+    {
+        audioSource.Stop();
+    }
+
+    private void OnCutSceneEnd()
+    {
+        audioSource.Play();
     }
 
     // Update is called once per frame

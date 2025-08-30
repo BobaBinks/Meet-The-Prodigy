@@ -40,12 +40,13 @@ public class SoundManager : MonoBehaviour
 
         if (sfxSource)
             sfxSource.volume = 1f;
+
+        PlayMusic(SoundLibrary.Instance.GetAudioClip(SoundLibrary.Music.MENU), loop: true);
     }
 
     private void Start()
     {
-        PlayMusic(SoundLibrary.Instance.GetAudioClip(SoundLibrary.Music.MENU),
-            loop: true);
+
     }
 
     public float GetMusicVolume()
