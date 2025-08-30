@@ -2536,10 +2536,10 @@ MonoBehaviour:
   bestText: {fileID: 180668386187635952}
   autoStart: 1
   levelId: Level1
-  aMax: 60
-  bMax: 120
-  cMax: 180
-  dMax: 240
+  aMax: 20
+  bMax: 30
+  cMax: 40
+  dMax: 50
   aColor: {r: 0.2, g: 0.85, b: 0.3, a: 1}
   bColor: {r: 0.25, g: 0.6, b: 1, a: 1}
   cColor: {r: 1, g: 0.85, b: 0.25, a: 1}
