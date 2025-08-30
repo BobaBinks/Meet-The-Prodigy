@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1376642615311903704}
   - component: {fileID: 7809049326863599507}
   - component: {fileID: 6657259362340842529}
-  - component: {fileID: 6608546311858587873}
   - component: {fileID: 3321950461481474206}
   - component: {fileID: 5475631236820671367}
   - component: {fileID: 5148878800618601058}
@@ -131,21 +130,6 @@ MonoBehaviour:
   startMovingRight: 1
   speedParam: speed
   pauseParam: isPaused
---- !u!114 &6608546311858587873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053454968637428096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 292225a8d36ab1544bb183f59c6eb51d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashColor: {r: 1, g: 0.3, b: 0.3, a: 1}
-  flashTime: 0.12
-  knockbackForce: 5
 --- !u!114 &3321950461481474206
 MonoBehaviour:
   m_ObjectHideFlags: 0

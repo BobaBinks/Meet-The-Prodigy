@@ -120,6 +120,9 @@ public class GameOverUI : MonoBehaviour
 
     public void GoToMenu()
     {
+        if (SoundManager.Instance && SoundLibrary.Instance)
+            SoundManager.Instance.PlayMusic(SoundLibrary.Instance.GetAudioClip(SoundLibrary.Music.MENU));
+
         if (string.IsNullOrEmpty(mainMenuSceneName))
         {
             Debug.LogWarning("[GameOverUI] Set Main Menu Scene Name in the inspector.");

@@ -20,9 +20,12 @@ public class GateFinish : MonoBehaviour
         UnlockNextLevel();
 
         if (SoundManager.Instance && SoundLibrary.Instance)
+        {
             SoundManager.Instance.PlaySoundEffect(
                 SoundLibrary.Instance.GetAudioClip(SoundLibrary.SoundEvents.WIN)
             );
+            SoundManager.Instance.StopMusic();
+        }
 
         if (WinUI.Instance != null)
             WinUI.Instance.Show();

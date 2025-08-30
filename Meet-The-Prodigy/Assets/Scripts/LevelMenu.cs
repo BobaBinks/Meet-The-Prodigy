@@ -35,6 +35,8 @@ public class LevelMenu : MonoBehaviour
 
     public void OpenLevel(int levelNumber)
     {
+        if (SoundManager.Instance && SoundLibrary.Instance)
+            SoundManager.Instance.PlayMusic(SoundLibrary.Instance.GetAudioClip(SoundLibrary.Music.GAME));
         string levelName = $"Level {levelNumber}";
         SceneManager.LoadScene(levelName);
     }

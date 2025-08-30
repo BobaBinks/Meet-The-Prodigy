@@ -44,7 +44,7 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        PlayMusic(SoundLibrary.Instance.GetAudioClip(SoundLibrary.Music.GAME),
+        PlayMusic(SoundLibrary.Instance.GetAudioClip(SoundLibrary.Music.MENU),
             loop: true);
     }
 
@@ -137,5 +137,11 @@ public class SoundManager : MonoBehaviour
         musicSource.clip = clip;
         musicSource.loop = loop;
         musicSource.Play();
+    }
+
+    public void StopMusic()
+    {
+        if (musicSource.isPlaying)
+            musicSource.Stop();
     }
 }

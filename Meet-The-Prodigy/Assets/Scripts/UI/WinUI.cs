@@ -77,12 +77,18 @@ public class WinUI : MonoBehaviour
 
     private void ReplayLevel()
     {
+        if (SoundManager.Instance && SoundLibrary.Instance)
+            SoundManager.Instance.PlayMusic(SoundLibrary.Instance.GetAudioClip(SoundLibrary.Music.GAME));
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 
     private void GoToMainMenu()
     {
+        if(SoundManager.Instance && SoundLibrary.Instance)
+            SoundManager.Instance.PlayMusic(SoundLibrary.Instance.GetAudioClip(SoundLibrary.Music.MENU));
+
         Time.timeScale = 1f;
         if (!string.IsNullOrEmpty(mainMenuSceneName))
             SceneManager.LoadScene(mainMenuSceneName);
@@ -97,6 +103,9 @@ public class WinUI : MonoBehaviour
             Debug.LogWarning("[WinUI] No next level found.");
             return;
         }
+
+        if (SoundManager.Instance && SoundLibrary.Instance)
+            SoundManager.Instance.PlayMusic(SoundLibrary.Instance.GetAudioClip(SoundLibrary.Music.GAME));
         Time.timeScale = 1f;
         SceneManager.LoadScene(next);
     }

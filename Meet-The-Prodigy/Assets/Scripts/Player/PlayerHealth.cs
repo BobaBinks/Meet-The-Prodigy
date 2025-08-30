@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     public MonoBehaviour[] disableOnDeath;
     public UnityEvent onDamaged;
     public UnityEvent onDeath;
+    public static Action OnPlayerDamage;
 
     // (current, max)
     public Action<int, int> OnHealthChanged;
@@ -53,6 +54,7 @@ public class PlayerHealth : MonoBehaviour
 
         onDamaged?.Invoke();
         OnHealthChanged?.Invoke(currentHP, maxHP);
+        OnPlayerDamage?.Invoke();
 
         if (currentHP == 0) Die();
     }

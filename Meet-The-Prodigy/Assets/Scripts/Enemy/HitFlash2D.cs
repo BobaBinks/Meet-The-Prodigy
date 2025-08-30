@@ -18,6 +18,21 @@ public class HitFlash2D : MonoBehaviour
         originalColor = sr.color;
     }
 
+    private void OnEnable()
+    {
+        PlayerHealth.OnPlayerDamage += OnPlayerDamage;
+    }
+
+    private void OnDisable()
+    {
+        PlayerHealth.OnPlayerDamage -= OnPlayerDamage;
+    }
+
+    private void OnPlayerDamage()
+    {
+        Hit();
+    }
+
     public void Hit(Vector2? knockbackDir = null, Rigidbody2D rb = null)
     {
         if (!flashing && sr) StartCoroutine(DoFlash());

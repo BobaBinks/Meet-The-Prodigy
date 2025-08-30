@@ -9,6 +9,7 @@ public abstract class InstrumentBase : MonoBehaviour
 
     [Header("Instrument Parameters")]
     [SerializeField] protected float coolDownTimer = 1f;
+    float remainingCoolDownTimer = 0f;
     protected bool onCooldown = false;
 
     [HideInInspector] public Vector2 lookDirection;
@@ -55,9 +56,24 @@ public abstract class InstrumentBase : MonoBehaviour
         coolDownTimer = Mathf.Max(0, coolDownTimer);
         onCooldown = true;
 
-        yield return new WaitForSeconds(coolDownTimer);
+        remainingCoolDownTimer = coolDownTimer;
+
+        while (remainingCoolDownTimer > 0f)
+        {
+            yield return null;
+            remainingCoolDownTimer -= Time.deltaTime;
+        }
 
         onCooldown = false;
-        
+    }
+
+    private void OnEnable()
+    {
+        // fix bug where switching instruments while currently equipped instruments is still on cooldown
+        // will prevent it's future use as it stays on cooldown
+        if(remainingCoolDownTimer > 0)
+        {
+            StartCoroutine(CoolDownCoroutine(remainingCoolDownTimer));
+        }
     }
 }

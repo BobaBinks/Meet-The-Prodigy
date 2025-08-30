@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7348183092132777004}
   - component: {fileID: 6604514392536183948}
   - component: {fileID: 2534864121510803289}
+  - component: {fileID: 6722805204979913499}
   m_Layer: 3
   m_Name: Drum
   m_TagString: Untagged
@@ -137,6 +138,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333a2b7b340487741a9b95588432ba1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6722805204979913499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1245815474820491158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 292225a8d36ab1544bb183f59c6eb51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 0.3, b: 0.3, a: 1}
+  flashTime: 0.12
+  knockbackForce: 5
 --- !u!1 &1328008464799667075
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +217,7 @@ GameObject:
   - component: {fileID: 638541162226933837}
   - component: {fileID: 8403340945015340258}
   - component: {fileID: 9150234235728047124}
+  - component: {fileID: 9078061918073726122}
   m_Layer: 3
   m_Name: Guitar
   m_TagString: Untagged
@@ -325,6 +342,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333a2b7b340487741a9b95588432ba1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &9078061918073726122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791767631959003688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 292225a8d36ab1544bb183f59c6eb51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 0.3, b: 0.3, a: 1}
+  flashTime: 0.12
+  knockbackForce: 5
 --- !u!1 &2454795314760087650
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,6 +465,7 @@ GameObject:
   - component: {fileID: 3550524632618363482}
   - component: {fileID: 8546401604747424477}
   - component: {fileID: 1219801586346789993}
+  - component: {fileID: 4585912297557410635}
   m_Layer: 3
   m_Name: Flute
   m_TagString: Untagged
@@ -557,6 +590,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 333a2b7b340487741a9b95588432ba1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4585912297557410635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3566804867940579712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 292225a8d36ab1544bb183f59c6eb51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor: {r: 1, g: 0.3, b: 0.3, a: 1}
+  flashTime: 0.12
+  knockbackForce: 5
 --- !u!1 &4015179080329517182
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,8 +913,8 @@ MonoBehaviour:
   playerVisuals: {fileID: 1714175671530087489}
   groundChecker: {fileID: 8386642559943209599}
   playerInput: {fileID: 5012746227337687617}
-  jumpPower: 30
-  moveSpeed: 20
+  jumpPower: 20
+  moveSpeed: 10
 --- !u!114 &-5193646143620487406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1121,7 +1169,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4514103518077679640, guid: 19ac7883ffe541c439ae84302191f254, type: 3}
       propertyPath: force
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4514103518077679640, guid: 19ac7883ffe541c439ae84302191f254, type: 3}
       propertyPath: collider
