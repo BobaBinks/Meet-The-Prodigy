@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(SpriteFlipper))]
+[RequireComponent(typeof(DamageOnTouch))]
 public class EnemyPatrol2D : MonoBehaviour
 {
     [Header("Patrol")]
@@ -21,6 +22,7 @@ public class EnemyPatrol2D : MonoBehaviour
     SpriteRenderer sr;
     Animator anim;
     SpriteFlipper spriteFlipper;
+    DamageOnTouch damageOnTouchComponent;
 
     float leftX, rightX;
     bool movingRight;
@@ -31,7 +33,8 @@ public class EnemyPatrol2D : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
-        spriteFlipper = GetComponent<SpriteFlipper>(); 
+        spriteFlipper = GetComponent<SpriteFlipper>();
+        damageOnTouchComponent = GetComponent<DamageOnTouch>();
 
         float startX = transform.position.x;
         leftX = startX - halfDistance;
@@ -68,12 +71,15 @@ public class EnemyPatrol2D : MonoBehaviour
         rb.linearVelocity = Vector2.zero;
         isPaused = true;
 
+        damageOnTouchComponent.enabled = false;
+
         if(anim && !string.IsNullOrEmpty(pauseParam))
             anim.SetBool(pauseParam, isPaused);
 
         yield return new WaitForSeconds(seconds);
         isPaused = false;
         rb.linearVelocity = old;
+        damageOnTouchComponent.enabled = true;
 
         if (anim && !string.IsNullOrEmpty(pauseParam))
             anim.SetBool(pauseParam, isPaused);

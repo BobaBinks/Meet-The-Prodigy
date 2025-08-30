@@ -12,6 +12,9 @@ public class DamageOnTouch : MonoBehaviour
 
     private void TryDamage(Collider2D other)
     {
+        if (enabled == false)
+            return;
+
         // Only count hits on player
         if (!other.CompareTag(requiredTag))
         {

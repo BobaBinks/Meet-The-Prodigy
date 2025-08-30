@@ -7,6 +7,7 @@ public class Rat : MonoBehaviour, IDrumAffectable, IGuitarAffectable, IFluteAffe
     Rigidbody2D rb;
     EnemyPatrol2D patrol;
 
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
